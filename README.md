@@ -29,7 +29,7 @@ local Service = SS:Create("HelloService", {
   },
   {
    OnPrinted = Signal.new()
-  }, game.Workspace)
+}, game.Workspace)
 
 Service:Hello() --// prints "Hello!"
 

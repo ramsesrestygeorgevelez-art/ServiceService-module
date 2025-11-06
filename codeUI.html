@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Roblox Module Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .header {
+            background-color: #5C6AC4;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .menu-button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .tabs {
+            display: flex;
+            background-color: #4a55a2;
+            padding: 0 20px;
+        }
+        .tab {
+            color: white;
+            padding: 12px 20px;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+        }
+        .tab.active {
+            border-bottom: 3px solid #ffd700;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .module-section {
+            margin: 20px 0;
+            padding: 15px;
+            border-left: 4px solid #5C6AC4;
+            background-color: #f9f9f9;
+        }
+        .property, .attribute {
+            margin: 10px 0;
+            padding: 8px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+        }
+        .service-item {
+            margin: 5px 0;
+            padding: 5px;
+            background-color: #e3f2fd;
+            border-radius: 3px;
+        }
+        .code-block {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+        }
+        .content-section {
+            display: none;
+        }
+        .content-section.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <button class="menu-button" id="menuButton">☰</button>
+        <h1>Roblox Module Documentation - ServiceService</h1>
+    </div>
+    
+    <div class="tabs">
+        <div class="tab active" data-tab="api">API</div>
+        <div class="tab" data-tab="properties">Properties</div>
+        <div class="tab" data-tab="attributes">Attributes</div>
+    </div>
+
+    <div class="container">
+        <!-- API Section -->
+        <div class="content-section active" id="api-section">
+            <div class="module-section">
+                <h2>Overview</h2>
+                <p>The ServiceService module creates and manages services and groups them into service collections.</p>
+            </div>
+
+            <div class="module-section">
+                <h2>Methods</h2>
+                <div class="service-item">
+                    <strong>Create(name, funcTable, propTable, signals, parent): Creates an Service.
+                </div>
+                <div class="service-item">
+                    <strong>GetCreatedService(name): </strong> Gets the created service.
+                </div>
+                <div class="service-item">
+                    <strong>GetServices():</strong> Returns all services in the group
+                </div>
+            </div>
+
+            <div class="module-section">
+                <h2>Usage Example</h2>
+                <div class="code-block">
+                    local ServiceService = require(game.ReplicatedStorage.ServiceService)<br><br>
+                    local myServiceGroup = ServiceService.new("MyServiceGroup")<br><br>
+                    -- Create and add services<br>
+                    local service1 = { Name = "Service1", Type = "Data" }<br>
+                    local service2 = { Name = "Service2", Type = "Network" }<br><br>
+                    myServiceGroup:AddService(service1)<br>
+                    myServiceGroup:AddService(service2)<br><br>
+                    print(myServiceGroup:GetServices())
+                </div>
+            </div>
+        </div>
+
+        <!-- Properties Section -->
+        <div class="content-section" id="properties-section">
+            <div class="module-section">
+                <h2>Properties</h2>
+                <div class="property">
+                    <strong>Name:</strong> string - The name of the service group
+                </div>
+                <div class="property">
+                    <strong>Services:</strong> table - Collection of services in this group
+                </div>
+            </div>
+        </div>
+
+        <!-- Attributes Section -->
+        <div class="content-section" id="attributes-section">
+            <div class="module-section">
+                <h2>Attributes</h2>
+                <div class="attribute">
+                    <strong>CreateActorByService:</strong> boolean - Creates an "Actor" class when true.
+                </div>
+                <div class="attribute">
+                    <strong>SetServiceType:</strong> dropdown - Sets the type of the service. Can be loaded by MetaLoad.
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab switching functionality
+        const tabs = document.querySelectorAll('.tab');
+        const contentSections = document.querySelectorAll('.content-section');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and sections
+                tabs.forEach(t => t.classList.remove('active'));
+                contentSections.forEach(s => s.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                // Show corresponding section
+                const tabId = tab.getAttribute('data-tab');
+                document.getElementById(`${tabId}-section`).classList.add('active');
+            });
+        });
+
+        // Menu button functionality
+        const menuButton = document.getElementById('menuButton');
+        menuButton.addEventListener('click', () => {
+            alert('Menu opened! In a real implementation, this would show a sidebar menu.');
+        });
+    </script>
+</body>
+</html>

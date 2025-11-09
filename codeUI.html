@@ -117,13 +117,22 @@
                 <h2>Usage Example</h2>
                 <div class="code-block">
                     local ServiceService = require(game.ReplicatedStorage.ServiceService)<br><br>
-                    local myServiceGroup = ServiceService.new("MyServiceGroup")<br><br>
-                    -- Create and add services<br>
-                    local service1 = { Name = "Service1", Type = "Data" }<br>
-                    local service2 = { Name = "Service2", Type = "Network" }<br><br>
-                    myServiceGroup:AddService(service1)<br>
-                    myServiceGroup:AddService(service2)<br><br>
-                    print(myServiceGroup:GetServices())
+                    local Signal = require(game.ReplicatedStorage.Signal)<br><br>
+                    local myService = ServiceService.Create("blaService", {
+                       function Hello()<br><br>    
+                           print("hello")<br><br>
+                       end<br><br>
+                    
+                    }, {
+
+                    ["test"] = true<br><br>
+                    }, {
+                    OnPrinted = Signal.new()<br><br>
+                    })<br><br>
+
+                    local service = ServiceService:GetCreatedService("blaService")<br><br>
+                    
+                    service:Hello()<br><br>
                 </div>
             </div>
         </div>

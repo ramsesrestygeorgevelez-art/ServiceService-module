@@ -41,5 +41,7 @@ end
 # Docs
 
 
-Function      Parameters                                    Type                                                                                   Desc
-Create        name, funcTable, propTable, signals, parent   name: String, funcTable: Table, propTable: Table, signals: Table, Parent: String       Creates an Service.
+| Function | Parameters | Description |
+|---|---|---|
+| Create | Name: string, functions: Table, Properties: Table, Signals; Table, Parent: Instance | Creates a service. |
+| CreateProperty | Name: string,  | Row 2, Col 3 |

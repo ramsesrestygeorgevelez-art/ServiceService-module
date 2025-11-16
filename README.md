@@ -1,14 +1,14 @@
 # ServiceService-module
 
--- ServiceService by RAMSES_SERVICESOWNER
+### ServiceService by RAMSES_SERVICESOWNER
 
--- This module creates SPECIAL services! Plus it uses DRCS. (Don't Repeat Creating Services), a principle by me.
+### This module creates SPECIAL services! Plus it uses DRCS. (Don't Repeat Creating Services), a principle by me.
 
---// ATTRIBUTES 
+### ATTRIBUTES 
 
--- CreateActorByService: Creates an "Actor" class when true.
+### CreateActorByService: Creates an "Actor" class when true.
 
--- SetServiceType: Sets the type of the service. Can be loaded by MetaLoad.
+### SetServiceType: Sets the type of the service. Can be loaded by MetaLoad.
 
 # Lua Code Preview
 
@@ -44,4 +44,4 @@ end
 | Function | Parameters | Description |
 |---|---|---|
 | Create | Name: string, functions: Table, Properties: Table, Signals; Table, Parent: Instance | Creates a service. |
-| CreateProperty | Name: string,  | Row 2, Col 3 |
+| CreateProperty | Name: string, nameOfProperty: string, value: any | Creates an property from a service. |

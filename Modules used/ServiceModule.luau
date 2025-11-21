@@ -1,5 +1,6 @@
 local ServiceModule = {}
 function ServiceModule:CreateData(dataTable)
-    dataTable[]
+    dataTable[] = data
 end
+
 return ServiceModule
